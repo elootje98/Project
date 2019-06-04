@@ -68,7 +68,7 @@ datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
   // Some function to update spiderchart.
 })
 
-![](IMG_5536.png)
+![](IMG_5537.png)
 
 ## Plan of the html page
 The first page the user will visit, is an introductionary page. It tells the
