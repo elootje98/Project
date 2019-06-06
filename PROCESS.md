@@ -6,4 +6,7 @@ pseudocode I want to use to do that.
 
 ## Day 3
 I started with making the html page. Also I made the different divs where my
-vizualisations will be placed in later. 
+vizualisations will be placed in later.
+
+## Day 4
+Today I added the buttons and drop down list to my html page. 
