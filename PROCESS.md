@@ -9,4 +9,7 @@ I started with making the html page. Also I made the different divs where my
 vizualisations will be placed in later.
 
 ## Day 4
-Today I added the buttons and drop down list to my html page. 
+Today I added the buttons and drop down list to my html page.
+
+## Day 5
+I added a short introduction and made the map working.
