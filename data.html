@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <div id="box-one">
+    <head>
+        <link href="style.css" rel="stylesheet">
+        <title>
+            Website Elodie Rijnja 10
+        </title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script>
+      d3v5 = d3;
+      window.d3 = null;
+    </script>
+    <!-- Import D3 V3 and TopoJSON -->
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <!-- <script scr="redraw.js"></script> -->
+    <script src="datamaps.world.min.js"></script>
+    <script src="toCountryCode.js"></script>
+    <script src ="make_maps.js"></script>
+    <script src="scatter.js"></script>
+    <script>
+      d3v3 = d3;
+      window.d3 = null;
+
+      // Test if it worked
+      console.log('v3', d3v3.version);
+      console.log('v5', d3v5.version);
+    </script>
+
+    <div id="container" style="position: relative; width: 1000px; height: 750px;"></div>
+    <button class="both">Both</button>
+    <button class="women">Women</button>
+    <button class="men">Men</button>
+    <script src="map.js">
+    </script>
+    </div>
+
+    <div id="box-two">
+      <div id="line">
+        <p>
+        HERE WILL COME THE LINECHART
+        </p>
+        <select>
+          <option selected value="Total tax">Total tax</option>
+          <option value="Specific excise">Specific excise</option>
+          <option value="Ad valorem">Ad valorem</option>
+          <option value="Import duties">Import duties</option>
+          <option value="Value added tax">Value added tax</option>
+          <option value="other taxes">Other taxes</option>
+        </select>
+      </div>
+      <div id="spider">
+        <p>
+          HERE WILL COME THE spider
+        </p>
+      </div>
+    <div>
+
+    <!-- REST OF IMPORTS HERE -->
+
+  </head>
+    </head>
+    <body background="serveimage.jpeg">
+    <h1>
+        <p>"Helo"</p>
+    </h1>
+    </body>
+    <footer>
+        <small>
+            <time>
+                <h3>
+        Updated 06-06-2019
+                </h3>
+            </time>
+        </small>
+    </footer>
+</html>
+<!-- TO DO; MAKE THE BUTTONS (ONE FOR THE DIFFERENT KIND OF TAXES AND ONE FOR
+MALE/FEMALE/BOTH WORLD MAP) -->
