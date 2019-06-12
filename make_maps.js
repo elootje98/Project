@@ -1,3 +1,4 @@
+
 function make_map(datas){
   var map = new Datamap({element: document.getElementById('container'),
     // setProjection: function(element) {
@@ -20,7 +21,7 @@ function make_map(datas){
       defaultFill: '#ffffb2',
   },
   data:
-    all_countries,
+    datas,
   geographyConfig: {
     highlightBorderColor: '#bada55',
     popupTemplate: function(geography, data) {
@@ -35,16 +36,26 @@ function make_map(datas){
   },
   // done: function(datamap) {
   //     datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
-          // if(all_countries[(geography.id)] == undefined){
-          //   console.log('no data TO DO');
-          //   d3v5.select("#pie")
-          //     .style("visibility", "hidden");
-          // }
-          // else{
-          //   d3v5.select("#pie")
-          //     .style("visibility", "visible");
-          // redraw([{"label": "Male", "value":all_countries[(geography.id)]["Male"]}, {"label": "Female", "value":all_countries[(geography.id)]["Female"]}])};
-    //   });
-    // },
+  //         if(all_countries[(geography.id)] == undefined){
+  //           console.log('no data TO DO');
+  //           d3v5.select("#spider")
+  //             .style("visibility", "hidden");
+  //         }
+  //         else{
+  //           d3v5.select("#spider")
+  //             .style("visibility", "visible");
+  //         redraw([{"label": "Male", "value":all_countries[(geography.id)]["Male"]}, {"label": "Female", "value":all_countries[(geography.id)]["Female"]}])};
+  //     });
+  //   },
   });
+  map.legend({
+      legendTitle: "% of population that smokes tobacco daily",
+      });
+
+  return map;
+}
+
+function update_map(datasx){
+  console.log(datasx)
+  map.updateChoropleth(datasx);
 }
