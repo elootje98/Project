@@ -13,3 +13,12 @@ Today I added the buttons and drop down list to my html page.
 
 ## Day 5
 I added a short introduction and made the map working.
+
+## 11-06-2019
+I tried to make the buttons of my world map working.
+
+## 12-06-2019
+Working on the update function for the line chart.
+
+## 13-06-2019
+The update function for the line chart is more or less working now. 
