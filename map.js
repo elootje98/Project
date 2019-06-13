@@ -1,6 +1,6 @@
-function makeMapdata(){
+function makeMapdata(datas){
 
-  d3v5.json("smoking.json").then(function(datas) {
+    var all_countries = {}
 
     for(var i = 0; i < 2328; i++){
     country = {}
@@ -34,7 +34,7 @@ function makeMapdata(){
     }
 
     // Also do this for females
-    all_countries_females = {}
+    var all_countries_females = {}
 
     for(var i = 0; i < 2328; i++){
     country = {}
@@ -68,7 +68,7 @@ function makeMapdata(){
     }
 
     // Also do this for males
-    all_countries_males = {}
+    var all_countries_males = {}
 
     for(var i = 0; i < 2328; i++){
     country = {}
@@ -99,8 +99,7 @@ function makeMapdata(){
         all_countries_males[code] = country;
       }
     }
+  mapData = [all_countries, all_countries_males, all_countries_females];
 
-  // Make the world map.
-  map = make_map(all_countries);
-  });
+  return mapData;
 }

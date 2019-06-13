@@ -23,28 +23,28 @@ function make_map(datas){
   data:
     datas,
   geographyConfig: {
-    highlightBorderColor: '#bada55',
-    popupTemplate: function(geography, data) {
-      if(all_countries[(geography.id)] == undefined){
+      highlightBorderColor: '#bada55',
+      popupTemplate: function(geography, data) {
+        if(datas[(geography.id)] == undefined){
           return '<div class="hoverinfo">' + geography.properties.name + ":" + " " + "No value"
-      }
-      else{
-      return '<div class="hoverinfo">' + geography.properties.name +
-      ":" + " " + all_countries[(geography.id)]["Value"] + ' '}
+        }
+        else{
+        return '<div class="hoverinfo">' + geography.properties.name +
+        ":" + " " + datas[(geography.id)]["Value"] + ' '}
+      },
+      highlightBorderWidth: 3
     },
-    highlightBorderWidth: 3
-  },
   // done: function(datamap) {
   //     datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
-  //         if(all_countries[(geography.id)] == undefined){
+  //         if(allTaxes[(geography.id)] == undefined){
   //           console.log('no data TO DO');
-  //           d3v5.select("#spider")
-  //             .style("visibility", "hidden");
+  //           // d3v5.select("body").select("line")
+  //           //   .style("visibility", "hidden");
   //         }
   //         else{
-  //           d3v5.select("#spider")
-  //             .style("visibility", "visible");
-  //         redraw([{"label": "Male", "value":all_countries[(geography.id)]["Male"]}, {"label": "Female", "value":all_countries[(geography.id)]["Female"]}])};
+  //           // d3v5.select("#spider")
+  //           //   .style("visibility", "visible");
+  //         updateLine(allTaxes[0][(geography.id)]);
   //     });
   //   },
   });
@@ -55,7 +55,7 @@ function make_map(datas){
   return map;
 }
 
-function update_map(datasx){
+function update_map(map, datasx){
   console.log(datasx)
   map.updateChoropleth(datasx);
 }

@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang ="en">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <div id="box-one">
     <head>
         <link href="style.css" rel="stylesheet">
         <title>
             Website Elodie Rijnja 10
         </title>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="data.html">Data <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="http://apps.who.int/gho/data/node.main.1250?lang=en">Source smokers<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="TO DO">Source taxes<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="TO DO">Source advertising<span class="sr-only">(current)</span></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script>
       d3v5 = d3;
@@ -15,6 +37,9 @@
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
     <!-- <script scr="redraw.js"></script> -->
+    <script src="spider.js"></script>
+    <script src="make_radar.js"></script>
+    <script src="main.js"></script>
     <script src="datamaps.world.min.js"></script>
     <script src="toCountryCode.js"></script>
     <script src ="make_maps.js"></script>
@@ -27,22 +52,18 @@
       console.log('v3', d3v3.version);
       console.log('v5', d3v5.version);
     </script>
-
-    <div id="container" style="position: relative; width: 1000px; height: 750px;"></div>
+    <div id="container" style="position: relative; width: 900px; height: 675px;"></div>
+    <script src="map.js">
+    </script>
     <button class="both">Both</button>
     <button class="women">Women</button>
     <button class="men">Men</button>
-    <script src="map.js">
-    </script>
     </div>
-
     <div id="box-two">
       <div id="line">
-        <p>
-        HERE WILL COME THE LINECHART
-        </p>
+        <script src="tax.js"></script>
         <select>
-          <option selected value="Total tax">Total tax</option>
+          <option class = "Total" selected value="Total tax">Total tax</option>
           <option value="Specific excise">Specific excise</option>
           <option value="Ad valorem">Ad valorem</option>
           <option value="Import duties">Import duties</option>
@@ -51,20 +72,13 @@
         </select>
       </div>
       <div id="spider">
-        <p>
-          HERE WILL COME THE spider
-        </p>
       </div>
     <div>
 
     <!-- REST OF IMPORTS HERE -->
 
   </head>
-    </head>
     <body background="serveimage.jpeg">
-    <h1>
-        <p>"Helo"</p>
-    </h1>
     </body>
     <footer>
         <small>
