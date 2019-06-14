@@ -34,19 +34,17 @@ function make_map(datas){
       },
       highlightBorderWidth: 3
     },
-  // done: function(datamap) {
-  //     datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
-  //         if(allTaxes[(geography.id)] == undefined){
-  //           console.log('no data TO DO');
-  //           // d3v5.select("body").select("line")
-  //           //   .style("visibility", "hidden");
-  //         }
-  //         else{
-  //           // d3v5.select("#spider")
-  //           //   .style("visibility", "visible");
-  //         updateLine(allTaxes[0][(geography.id)]);
-  //     });
-  //   },
+    // done: function(datamap) {
+    // datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
+    //     if(allTaxes[(geography.id)] == undefined){
+    //       console.log('no data TO DO');
+    //       // d3v5.select("#pie")
+    //       //   .style("visibility", "hidden");
+    //     }
+    //     else{
+    //       console.log("hoi")
+    //   }
+    // }),
   });
   map.legend({
       legendTitle: "% of population that smokes tobacco daily",

@@ -13,7 +13,8 @@ Promise.all(loadData).then(function(data1){
 
   // console.log(taxData);
   makeLine(allTaxes[0]["USA"]);
-  updateLine(allTaxes[0]["ARG"]);
+  console.log(allTaxes[0]["ARG"]);
+  var countryTax = "ARG";
 
   // Load advertisement data
   var adData = makeAddata(data1[2]);
@@ -31,5 +32,21 @@ Promise.all(loadData).then(function(data1){
     .on('click', function(){ update_map(map, mapData[2]); });
 
   d3v5.select("body").select("#box-two").select("#line").select(".Total")
-    .on('click', function(){console.log("hoi");updateLine(allTaxes[0]["USA"])});
+    .on('click', function(){updateLine(allTaxes[0][countryTax])});
+
+  d3v5.select("body").select("#box-two").select("#line").select(".Specific")
+    .on('click', function(){updateLine(allTaxes[1][countryTax])});
+
+  d3v5.select("body").select("#box-two").select("#line").select(".Ad")
+    .on('click', function(){updateLine(allTaxes[2][countryTax])});
+
+  d3v5.select("body").select("#box-two").select("#line").select(".Import")
+    .on('click', function(){updateLine(allTaxes[3][countryTax])});
+
+  d3v5.select("body").select("#box-two").select("#line").select(".Value")
+    .on('click', function(){updateLine(allTaxes[4][countryTax])});
+
+  d3v5.select("body").select("#box-two").select("#line").select(".Other")
+    .on('click', function(){updateLine(allTaxes[5][countryTax])});
+
 });
