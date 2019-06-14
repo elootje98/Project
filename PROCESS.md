@@ -21,4 +21,8 @@ I tried to make the buttons of my world map working.
 Working on the update function for the line chart.
 
 ## 13-06-2019
-The update function for the line chart is more or less working now. 
+The update function for the line chart is more or less working now.
+
+## 14-06-2019
+Tried to get bugs out of my update functions, didnt work that well yet.
+Had a meeting and there some suggestions were made regarding that toppic.
