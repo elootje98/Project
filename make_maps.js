@@ -1,5 +1,5 @@
 
-function make_map(datas){
+function make_map(datas, allTaxes, adData){
   var map = new Datamap({element: document.getElementById('container'),
     // setProjection: function(element) {
     //    var projection = d3v3.geo.equirectangular()
@@ -34,26 +34,58 @@ function make_map(datas){
       },
       highlightBorderWidth: 3
     },
-    // done: function(datamap) {
-    // datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
-    //     if(allTaxes[(geography.id)] == undefined){
-    //       console.log('no data TO DO');
-    //       // d3v5.select("#pie")
-    //       //   .style("visibility", "hidden");
-    //     }
-    //     else{
-    //       console.log("hoi")
-    //   }
-    // }),
+    done: function(datamap) {
+    datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
+        if(allTaxes[0][(geography.id)] == undefined){
+          console.log('no data TO DO');
+
+          // Don't show the line chart when there is no value
+          d3v5.select("body").select("#box-two").select("#line")
+            .style("visibility", "hidden");
+        }
+        else{
+
+          // Show the line chart
+          d3v5.select("body").select("#box-two").select("#line")
+            .style("visibility", "visible");
+
+          // Update the line and spider graph
+          updateLine(allTaxes[0][geography.id]);
+          updateSpider([adData[geography.id]]);
+
+          d3v5.select("body").select("#box-two").select("#line").select(".title")
+            .text(geography.properties.name);
+
+          // Make the buttons updated to that country
+          var countryTax = geography.id;
+          d3v5.select("body").select("#box-two").select("#line").select(".Total")
+            .on('click', function(){updateLine(allTaxes[0][countryTax])});
+
+          d3v5.select("body").select("#box-two").select("#line").select(".Specific")
+            .on('click', function(){console.log(allTaxes[1][countryTax]); updateLine(allTaxes[1][countryTax])});
+
+          d3v5.select("body").select("#box-two").select("#line").select(".Ad")
+            .on('click', function(){console.log(allTaxes[2][countryTax]); updateLine(allTaxes[2][countryTax])});
+
+          d3v5.select("body").select("#box-two").select("#line").select(".Import")
+            .on('click', function(){console.log(allTaxes[3][countryTax]); updateLine(allTaxes[3][countryTax])});
+
+          d3v5.select("body").select("#box-two").select("#line").select(".Value")
+            .on('click', function(){console.log(allTaxes[4][countryTax]); updateLine(allTaxes[4][countryTax])});
+
+          d3v5.select("body").select("#box-two").select("#line").select(".Other")
+            .on('click', function(){console.log(allTaxes[5][countryTax]); updateLine(allTaxes[5][countryTax])});
+        }
+      })
+    },
   });
   map.legend({
-      legendTitle: "% of population that smokes tobacco daily",
+      legendTitle: "% of population that smokes tobacco daily in 2013",
       });
 
   return map;
 }
 
 function update_map(map, datasx){
-  console.log(datasx)
   map.updateChoropleth(datasx);
 }

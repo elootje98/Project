@@ -19,18 +19,18 @@ function makeTaxdata(datas){
 
 function typeTaxes(type, datas){
 
-  // First do it for the taxes specific excise
   taxes = {}
   country = []
   item = {}
+  notEmpty = false;
 
   // Loop over the values of the taxes and add the values to the all_countreis
-  // TO DO : ALL THE VALUES ARE NOT CORRECT
   for(var i = 0; i < 4656; i++){
     if(datas["fact"][i]["dims"]["GHO"] == type){
       var year = datas["fact"][i]["dims"]["YEAR"];
       var value = datas["fact"][i]["Value"];
-      if(value != "Not applicable"){
+      if(value != "Not applicable" && value != "Not available"){
+        notEmpty = true;
         item["y"] = value;
         item["x"] = year;
         // console.log(value);
@@ -38,11 +38,14 @@ function typeTaxes(type, datas){
         item = {}
       }
 
-      if(year == 2008){
+      // If the list is not empty and all years are inside the list, add it to
+      // the taxes object.
+      if(year == 2008 && notEmpty){
         country_name = datas["fact"][i]["dims"]["COUNTRY"];
         code = toCountryCode(country_name);
         taxes[code] = country;
         country = [];
+        notEmpty = false;
       }
     }
   }
@@ -96,7 +99,24 @@ function makeLine(dataset){
   svg.append("text")
     .text("Years")
     .attr("x", 70)
-    .attr("y", 240);
+    .attr("y", 240)
+    .style("fill", "red");
+
+  // Give labels to the axis
+  svg.append("text")
+    .text("Average taxes as a % of cigarette price")
+    .attr("x", -200)
+    .attr("y", -30)
+    .attr("transform", "rotate(-90)")
+    .style("fill", "red");
+
+  // Title
+  svg.append("text")
+    .attr("class", "title")
+    .text("United states of America")
+    .attr("x", 70)
+    .attr("y", 0)
+    .style("fill", "red");
 
   // 9. Append the path, bind the data, and call the line generator
   svg.append("path")
@@ -167,7 +187,7 @@ function updateLine(data){
 
   // 6. Y scale will use the randomly generate number
   var yScale = d3v5.scaleLinear()
-    .domain([0, 20]) // input
+    .domain([0, 100]) // input
     .range([height, 0]); // output
 
   // join
@@ -177,14 +197,18 @@ function updateLine(data){
   // enter
   dots.enter().append("circle")
     .attr("class", "dot") // Assign a class for styling
-    .attr("cx", function(d) { return xScale(d.x) })
+    .attr("cx", function(d, i) { return xScale(d.x) })
     .attr("cy", function(d) { return yScale(d.y) })
     .attr("r", 5);
 
-  dots.attr("cx", function(d, i) { return xScale(i) })
+  dots.transition()
+    .duration(200)
+    .attr("cx", function(d, i) { return xScale(i) })
     .attr("cy", function(d) { return yScale(d.y) })
 
   var lines = d3v5.select("body").select("#box-two").select("#line").select("svg").select(".line")
+    .transition()
+    .duration(200)
     .attr("id","line1")
     .attr("d", line(data))
     .attr("class", "line"); // Assign a class for styling
