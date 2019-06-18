@@ -26,3 +26,9 @@ The update function for the line chart is more or less working now.
 ## 14-06-2019
 Tried to get bugs out of my update functions, didnt work that well yet.
 Had a meeting and there some suggestions were made regarding that toppic.
+
+## 16-06-2019
+I fixed the bugs in my worldmap and linechart.
+
+## 17-06-2019
+I still have a problem with my x-axis for my linechart. But I am tryign to fix it.

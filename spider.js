@@ -56,6 +56,8 @@ function makeSpider(data){
 
 function updateSpider(d){
 
+  console.log(d);
+
   var cfg = {
    radius: 5,
    w: 600,
@@ -85,7 +87,6 @@ function updateSpider(d){
   // enter
   d.forEach(function(y, x){
     dataValues = [];
-    console.log(y);
     dots.data(y)
       .enter()
       .append("svg:circle")
@@ -93,14 +94,10 @@ function updateSpider(d){
       .attr('r', cfg.radius)
       .attr("alt", function(j){return Math.max(j.value, 0)})
       .attr("cx", function(j, i){
-        console.log(j);
-
         dataValues.push([
         cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)),
         cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
       ]);
-      console.log(cfg.w/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)));
-      console.log(cfg);
       return cfg.w/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total));
       })
       .attr("cy", function(j, i){

@@ -59,11 +59,9 @@ function makeLine(dataset){
   , width = 300 // Use the window's width
   , height = 200; // Use the window's height
 
-  var years = [2008, 2010, 2012, 2014];
-
   // 5. X scale will use the index of our data
-  var xScale = d3v5.scaleBand()
-    .domain(years) // input
+  var xScale = d3v5.scaleLinear()
+    .domain([2008, 2014]) // input
     .range([0, width]); // output
 
   // 6. Y scale will use the randomly generate number
@@ -98,25 +96,40 @@ function makeLine(dataset){
   // Give labels to the axis
   svg.append("text")
     .text("Years")
-    .attr("x", 70)
+    .attr("x", 100)
     .attr("y", 240)
     .style("fill", "red");
 
   // Give labels to the axis
   svg.append("text")
-    .text("Average taxes as a % of cigarette price")
-    .attr("x", -200)
+    .text("%")
+    .attr("x", -100)
     .attr("y", -30)
     .attr("transform", "rotate(-90)")
+    .style("fill", "red");
+
+  svg.append("text")
+    .attr("class", "title")
+    .text("United states of America")
+    .attr("x", 40)
+    .attr("y", 0)
     .style("fill", "red");
 
   // Title
   svg.append("text")
     .attr("class", "title")
-    .text("United states of America")
-    .attr("x", 70)
-    .attr("y", 0)
+    .text("Average taxes as a % of cigarette price")
+    .attr("x", 0)
+    .attr("y", -20)
     .style("fill", "red");
+
+  // In case of no data, show this text
+  svg.append("text")
+    .attr("class", "no-data")
+    .text("No data for this country")
+    .attr("x", 20)
+    .attr("y", 100)
+    .style("visibility", "hidden");
 
   // 9. Append the path, bind the data, and call the line generator
   svg.append("path")
@@ -175,20 +188,20 @@ function updateLine(data){
   var width = 300 // Use the window's width
   var height = 200;
 
-  var line = d3v5.line()
-    .x(function(d, i) { return xScale(i); }) // set the x values for the line generator
-    .y(function(d) { return yScale(d.y); }) // set the y values for the line generator
-    .curve(d3v5.curveMonotoneX) // apply smoothing to the line
-
   // 5. X scale will use the index of our data
   var xScale = d3v5.scaleLinear()
-    .domain([0, 4-1]) // input
+    .domain([2008, 2014]) // input
     .range([0, width]); // output
 
   // 6. Y scale will use the randomly generate number
   var yScale = d3v5.scaleLinear()
     .domain([0, 100]) // input
     .range([height, 0]); // output
+
+  var line = d3v5.line()
+    .x(function(d) { return xScale(d.x); }) // set the x values for the line generator
+    .y(function(d) { return yScale(d.y); }) // set the y values for the line generator
+    .curve(d3v5.curveMonotoneX) // apply smoothing to the line
 
   // join
   var dots = d3v5.select("body").select("#box-two").select("#line").select("svg").selectAll(".dot")
@@ -197,13 +210,13 @@ function updateLine(data){
   // enter
   dots.enter().append("circle")
     .attr("class", "dot") // Assign a class for styling
-    .attr("cx", function(d, i) { return xScale(d.x) })
+    .attr("cx", function(d) { return xScale(d.x) })
     .attr("cy", function(d) { return yScale(d.y) })
     .attr("r", 5);
 
   dots.transition()
     .duration(200)
-    .attr("cx", function(d, i) { return xScale(i) })
+    .attr("cx", function(d) { return xScale(d.x) })
     .attr("cy", function(d) { return yScale(d.y) })
 
   var lines = d3v5.select("body").select("#box-two").select("#line").select("svg").select(".line")

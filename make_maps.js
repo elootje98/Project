@@ -41,13 +41,17 @@ function make_map(datas, allTaxes, adData){
 
           // Don't show the line chart when there is no value
           d3v5.select("body").select("#box-two").select("#line")
-            .style("visibility", "hidden");
+            .style("opacity", .3);
+          d3v5.select("body").select("#box-two").select("#line").select(".no-data")
+            .style("visibility", "visible");
         }
         else{
 
           // Show the line chart
+          d3v5.select("body").select("#box-two").select("#line").select(".no-data")
+            .style("visibility", "hidden");
           d3v5.select("body").select("#box-two").select("#line")
-            .style("visibility", "visible");
+            .style("opacity", 1);
 
           // Update the line and spider graph
           updateLine(allTaxes[0][geography.id]);
@@ -75,6 +79,16 @@ function make_map(datas, allTaxes, adData){
 
           d3v5.select("body").select("#box-two").select("#line").select(".Other")
             .on('click', function(){console.log(allTaxes[5][countryTax]); updateLine(allTaxes[5][countryTax])});
+        }
+
+        if(adData[(geography.id)] == undefined){
+          d3v5.select("body").select("#box-two").select("#spider")
+            .style("opacity", .3);
+        }
+        else{
+          updateSpider([adData[geography.id]]);
+          d3v5.select("body").select("#box-two").select("#spider")
+            .style("opacity", 1);
         }
       })
     },

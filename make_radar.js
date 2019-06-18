@@ -26,7 +26,7 @@ var RadarChart = {
       }
     }
 
-    cfg.maxValue = 100;
+    cfg.maxValue = 50;
 
     var allAxis = (d[0].map(function(i, j){return i.area}));
     var total = allAxis.length;
@@ -75,7 +75,6 @@ var RadarChart = {
        .style("font-size", "10px")
        .attr("transform", "translate(" + (cfg.w/2-levelFactor + cfg.ToRight) + ", " + (cfg.h/2-levelFactor) + ")")
        .attr("fill", "#737373")
-       .text((j+1)*100/cfg.levels);
     }
 
     series = 0;
@@ -95,17 +94,76 @@ var RadarChart = {
       .style("stroke", "black")
       .style("stroke-width", "1px");
 
-    axis.append("text")
-      .attr("class", "legend")
-      .text(function(d){return d})
-      .style("font-family", "sans-serif")
-      .style("font-size", "11px")
-      .attr("text-anchor", "middle")
-      .attr("dy", "1.5em")
-      .attr("transform", function(d, i){return "translate(0, -10)"})
-      .attr("x", function(d, i){return cfg.w/2*(1-cfg.factorLegend*Math.sin(i*cfg.radians/total))-60*Math.sin(i*cfg.radians/total);})
-      .attr("y", function(d, i){return cfg.h/2*(1-Math.cos(i*cfg.radians/total))-20*Math.cos(i*cfg.radians/total);});
+    var svg = d3v5.select("body").select("#box-two").select("#spider").select("svg");
 
+    svg.append("text")
+      .attr("class", "legend")
+      .text("National tv and Radio")
+      .attr("dy", "1.5em")
+      .attr("x", 170)
+      .attr("y", 5);
+
+    svg.append("text")
+      .attr("class", "legend")
+      .text("Internet")
+      .attr("dy", "1.5em")
+      .attr("x", 60)
+      .attr("y", 60);
+
+    svg.append("text")
+      .attr("class", "legend")
+      .text("International tv and radio")
+      .attr("dy", "1.5em")
+      .attr("x", 340)
+      .attr("y", 60);
+
+    svg.append("text")
+      .attr("class", "legend")
+      .text("Point of sale")
+      .attr("dy", "1.5em")
+      .attr("x", 380)
+      .attr("y", 200);
+
+    svg.append("text")
+      .attr("class", "legend")
+      .text("Billboards and outdoor advertising")
+      .attr("dy", "1.5em")
+      .attr("x", 250)
+      .attr("y", 315);
+
+    svg.append("text")
+      .attr("class", "legend")
+      .text("International magazines")
+      .attr("dy", "1.5em")
+      .attr("x", 90)
+      .attr("y", 315)
+
+    svg.append("text")
+      .attr("class", "legend")
+      .text("and newspapers")
+      .attr("dy", "1.5em")
+      .attr("x", 100)
+      .attr("y", 335)
+
+    svg.append("text")
+      .attr("class", "legend")
+      .text("Local magazines")
+      .attr("dy", "1.5em")
+      .attr("x", 0)
+      .attr("y", 140);
+
+    svg.append("text")
+      .attr("class", "legend")
+      .text("and newspapers")
+      .attr("dy", "1.5em")
+      .attr("x", 0)
+      .attr("y", 160);
+
+    svg.append("text")
+      .attr("class", "title")
+      .text("Ban on Advertising:")
+      .attr("x", 170)
+      .attr("y", 0)
 
     d.forEach(function(y, x){
       dataValues = [];
