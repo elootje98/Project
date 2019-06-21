@@ -22,6 +22,11 @@ Promise.all(loadData).then(function(data1){
   // make spider
   makeSpider([adData["ALB"]]);
 
+  // make makeScatter
+  makeScatter(mapData[0], allTaxes[0]);
+  var dataArray = makeScatter2(mapData[0], adData);
+  makeBox(dataArray);
+
   // Update map by onclick
   d3v5.select("body").select("#box-one").select(".both")
     .on('click', function(){ update_map(map, mapData[0]); });

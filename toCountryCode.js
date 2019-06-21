@@ -253,3 +253,12 @@ function toCountryCode(country){
   countryCode = countryCodes[country];
   return countryCode;
 }
+
+function toCountry(code){
+  var countries = Object.keys(countryCodes);
+  for(var i = 0; i < 248; i++){
+    if(countryCodes[countries[i]] == code){
+      return countries[i];
+    }
+  }
+}

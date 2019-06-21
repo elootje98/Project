@@ -17,8 +17,8 @@ function make_map(datas, allTaxes, adData){
       "10-20": '#fd8d3c',
       "20-30": '#f03b20',
       ">30": '#bd0026',
-      "UNKNOWN": '#ffffb2',
-      defaultFill: '#ffffb2',
+      "UNKNOWN": '#bdbdbd',
+      defaultFill: '#bdbdbd',
   },
   data:
     datas,
@@ -58,6 +58,9 @@ function make_map(datas, allTaxes, adData){
           updateSpider([adData[geography.id]]);
 
           d3v5.select("body").select("#box-two").select("#line").select(".title")
+            .text(geography.properties.name);
+
+          d3v5.select("body").select("#box-two").select("#spider").select(".title")
             .text(geography.properties.name);
 
           // Make the buttons updated to that country

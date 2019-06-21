@@ -69,6 +69,8 @@ function makeLine(dataset){
     .domain([0, 100]) // input
     .range([height, 0]); // output
 
+  // TODO: .ticks !!!!!!!!!!!!!!!!!!!
+
   // 7. d3's line generator
   var line = d3v5.line()
     .x(function(d, i) { return xScale(d.x); }) // set the x values for the line generator
@@ -82,11 +84,17 @@ function makeLine(dataset){
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+    tickValues = ["2008", "2010", "2012", "2014"];
+
   // 3. Call the x axis in a group tag
   svg.append("g")
     .attr("class", "x axis")
     .attr("transform", "translate(0," + height + ")")
-    .call(d3v5.axisBottom(xScale)); // Create an axis component with d3.axisBottom
+    .call(d3v5.axisBottom(xScale)
+      .tickFormat(d3v3.format("d"))
+      // .tickFormat(d3v5.timeFormat("%Y"))
+      .tickValues(tickValues));
+  // Create an axis component with d3.axisBottom
 
   // 4. Call the y axis in a group tag
   svg.append("g")
@@ -98,7 +106,7 @@ function makeLine(dataset){
     .text("Years")
     .attr("x", 100)
     .attr("y", 240)
-    .style("fill", "red");
+    .style("fill", "#e31a1c");
 
   // Give labels to the axis
   svg.append("text")
@@ -106,14 +114,14 @@ function makeLine(dataset){
     .attr("x", -100)
     .attr("y", -30)
     .attr("transform", "rotate(-90)")
-    .style("fill", "red");
+    .style("fill", "#bd0026");
 
   svg.append("text")
     .attr("class", "title")
     .text("United states of America")
     .attr("x", 40)
     .attr("y", 0)
-    .style("fill", "red");
+    .style("fill", "#bd0026");
 
   // Title
   svg.append("text")
@@ -121,7 +129,7 @@ function makeLine(dataset){
     .text("Average taxes as a % of cigarette price")
     .attr("x", 0)
     .attr("y", -20)
-    .style("fill", "red");
+    .style("fill", "#bd0026");
 
   // In case of no data, show this text
   svg.append("text")
@@ -135,7 +143,7 @@ function makeLine(dataset){
   svg.append("path")
     .datum(dataset) // 10. Binds data to the line
     .attr("class", "line") // Assign a class for styling
-    .attr("d", line); // 11. Calls the line generator
+    .attr("d", line)// 11. Calls the line generator
 
   // 12. Appends a circle for each datapoint
   svg.selectAll(".dot")
@@ -221,7 +229,7 @@ function updateLine(data){
 
   var lines = d3v5.select("body").select("#box-two").select("#line").select("svg").select(".line")
     .transition()
-    .duration(200)
+    .duration(500)
     .attr("id","line1")
     .attr("d", line(data))
     .attr("class", "line"); // Assign a class for styling

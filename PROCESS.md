@@ -27,8 +27,18 @@ The update function for the line chart is more or less working now.
 Tried to get bugs out of my update functions, didnt work that well yet.
 Had a meeting and there some suggestions were made regarding that toppic.
 
-## 16-06-2019
+## 17-06-2019
 I fixed the bugs in my worldmap and linechart.
 
-## 17-06-2019
+## 18-06-2019
 I still have a problem with my x-axis for my linechart. But I am tryign to fix it.
+
+## 19-06-2019
+Added two scatterplots. I think it gives adds an overview for the user.
+
+## 20-06-2019
+Fixes the bug in my x-as. Furthermore I made borders around my divs, which makes
+the design a bit bettter.
+
+## 21-06-2019
+I tried to update my design a bit, by changing the colors.
