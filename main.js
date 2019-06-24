@@ -16,7 +16,7 @@ Promise.all(loadData).then(function(data1){
   Object.assign(tempData, mapData[0]);
   var map = make_map(tempData, allTaxes, adData);
 
-  // console.log(taxData);
+  console.log(allTaxes[0]);
   makeLine(allTaxes[0]["USA"]);
 
   // make spider

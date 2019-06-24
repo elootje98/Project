@@ -106,7 +106,7 @@ function updateSpider(d){
       .attr("data-id", function(j){return j.area})
       .style("fill", "#fff")
       .style("stroke-width", "2px")
-      .style("stroke", cfg.color(series)).style("fill-opacity", .9)
+      .style("stroke", "#a00026")
       .on('mouseover', function (d){
             newX =  parseFloat(d3v3.select(this).attr('cx')) - 10;
             newY =  parseFloat(d3v3.select(this).attr('cy')) - 5;
@@ -156,7 +156,7 @@ function updateSpider(d){
         .attr("data-id", function(j){return j.area})
         .style("fill", "#fff")
         .style("stroke-width", "2px")
-        .style("stroke", cfg.color(series)).style("fill-opacity", .9)
+        .style("stroke", "#a00026")
         .on('mouseover', function (d){
               newX =  parseFloat(d3v3.select(this).attr('cx')) - 10;
               newY =  parseFloat(d3v3.select(this).attr('cy')) - 5;
@@ -218,7 +218,7 @@ function updateSpider(d){
                    }
                    return str;
                   })
-                 .style("fill", function(j, i){return cfg.color(series)})
+                 .style("fill", "#a00026")
                  .style("fill-opacity", cfg.opacityArea)
                  .on('mouseover', function (d){
                           z = "polygon."+d3v3.select(this).attr("class");

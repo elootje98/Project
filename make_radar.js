@@ -2,7 +2,7 @@ var RadarChart = {
   draw: function(id, d, options){
     var cfg = {
      radius: 5,
-     w: 600,
+     w: 800,
      h: 600,
      factor: 1,
      factorLegend: .85,
@@ -11,7 +11,7 @@ var RadarChart = {
      radians: 2 * Math.PI,
      opacityArea: 1,
      ToRight: 5,
-     TranslateX: 80,
+     TranslateX: 200,
      TranslateY: 30,
      ExtraWidthX: 100,
      ExtraWidthY: 100,
@@ -43,24 +43,6 @@ var RadarChart = {
 
 		var tooltip;
 
-    //Circular segments
-    for(var j=0; j<cfg.levels; j++){
-      var levelFactor = cfg.factor*radius*((j+1)/cfg.levels);
-      g.selectAll(".levels")
-       .data(allAxis)
-       .enter()
-       .append("svg:line")
-       .attr("x1", function(d, i){return levelFactor*(1-cfg.factor*Math.sin(i*cfg.radians/total));})
-       .attr("y1", function(d, i){return levelFactor*(1-cfg.factor*Math.cos(i*cfg.radians/total));})
-       .attr("x2", function(d, i){return levelFactor*(1-cfg.factor*Math.sin((i+1)*cfg.radians/total));})
-       .attr("y2", function(d, i){return levelFactor*(1-cfg.factor*Math.cos((i+1)*cfg.radians/total));})
-       .attr("class", "line")
-       .style("stroke", "black")
-       .style("stroke-opacity", "0.75")
-       .style("stroke-width", "0.3px")
-       .attr("transform", "translate(" + (cfg.w/2-levelFactor) + ", " + (cfg.h/2-levelFactor) + ")");
-    }
-
     //Text indicating at what % each level is
     for(var j=0; j<cfg.levels; j++){
       var levelFactor = cfg.factor*radius*((j+1)/cfg.levels);
@@ -74,7 +56,7 @@ var RadarChart = {
        .style("font-family", "sans-serif")
        .style("font-size", "10px")
        .attr("transform", "translate(" + (cfg.w/2-levelFactor + cfg.ToRight) + ", " + (cfg.h/2-levelFactor) + ")")
-       .attr("fill", "#737373")
+       .attr("fill", "#a00026")
     }
 
     series = 0;
@@ -100,70 +82,95 @@ var RadarChart = {
       .attr("class", "legend")
       .text("National tv and Radio")
       .attr("dy", "1.5em")
-      .attr("x", 170)
-      .attr("y", 5);
+      .attr("x", 300)
+      .attr("y", 5)
+      .style("fill", "#a00026");
 
     svg.append("text")
       .attr("class", "legend")
       .text("Internet")
       .attr("dy", "1.5em")
-      .attr("x", 60)
-      .attr("y", 60);
+      .attr("x", 180)
+      .attr("y", 60)
+      .style("fill", "#a00026");
 
     svg.append("text")
       .attr("class", "legend")
-      .text("International tv and radio")
+      .text("International tv")
       .attr("dy", "1.5em")
-      .attr("x", 340)
-      .attr("y", 60);
+      .attr("x", 480)
+      .attr("y", 60)
+      .style("fill", "#a00026");
+
+    svg.append("text")
+      .attr("class", "legend")
+      .text("and radio")
+      .attr("dy", "1.5em")
+      .attr("x", 480)
+      .attr("y", 75)
+      .style("fill", "#a00026");
 
     svg.append("text")
       .attr("class", "legend")
       .text("Point of sale")
       .attr("dy", "1.5em")
-      .attr("x", 380)
-      .attr("y", 200);
+      .attr("x", 500)
+      .attr("y", 200)
+      .style("fill", "#a00026");
 
     svg.append("text")
       .attr("class", "legend")
       .text("Billboards and outdoor advertising")
       .attr("dy", "1.5em")
-      .attr("x", 250)
-      .attr("y", 315);
+      .attr("x", 370)
+      .attr("y", 315)
+      .style("fill", "#a00026");
 
     svg.append("text")
       .attr("class", "legend")
       .text("International magazines")
       .attr("dy", "1.5em")
-      .attr("x", 90)
+      .attr("x", 200)
       .attr("y", 315)
+      .style("fill", "#a00026");
+
+    svg.append("text")
+      .attr("class", "legend")
+      .text("and newspapers")
+      .attr("dy", "1.5em")
+      .attr("x", 200)
+      .attr("y", 335)
+      .style("fill", "#a00026");
+
+    svg.append("text")
+      .attr("class", "legend")
+      .text("Local magazines")
+      .attr("dy", "1.5em")
+      .attr("x", 100)
+      .attr("y", 180)
+      .style("fill", "#a00026");
 
     svg.append("text")
       .attr("class", "legend")
       .text("and newspapers")
       .attr("dy", "1.5em")
       .attr("x", 100)
-      .attr("y", 335)
+      .attr("y", 200)
+      .style("fill", "#a00026");
 
     svg.append("text")
-      .attr("class", "legend")
-      .text("Local magazines")
-      .attr("dy", "1.5em")
-      .attr("x", 0)
-      .attr("y", 140);
-
-    svg.append("text")
-      .attr("class", "legend")
-      .text("and newspapers")
-      .attr("dy", "1.5em")
-      .attr("x", 0)
-      .attr("y", 160);
+      .attr("class", "title")
+      .text("United States of America")
+      .attr("x", 50)
+      .attr("y", 60)
+      .style("fill", "#a00026");
 
     svg.append("text")
       .attr("class", "title")
       .text("Ban on Advertising:")
-      .attr("x", 170)
-      .attr("y", 0)
+      .attr("x", 50)
+      .attr("y", 30)
+      .style("fill", "#a00026");
 
     d.forEach(function(y, x){
       dataValues = [];
@@ -189,7 +196,7 @@ var RadarChart = {
                }
                return str;
               })
-             .style("fill", function(j, i){return cfg.color(series)})
+             .style("fill", "#a00026")
              .style("fill-opacity", cfg.opacityArea)
              .on('mouseover', function (d){
                       z = "polygon."+d3v3.select(this).attr("class");
@@ -230,17 +237,10 @@ var RadarChart = {
       .attr("data-id", function(j){return j.area})
       .style("fill", "#fff")
       .style("stroke-width", "2px")
-      .style("stroke", cfg.color(series)).style("fill-opacity", .9)
+      .style("stroke", "#a00026")
       .on('mouseover', function (d){
             newX =  parseFloat(d3v3.select(this).attr('cx')) - 10;
             newY =  parseFloat(d3v3.select(this).attr('cy')) - 5;
-
-            tooltip
-              .attr('x', newX)
-              .attr('y', newY)
-              .text(Format(d.value))
-              .transition(200)
-              .style('opacity', 1);
 
             z = "polygon."+d3v3.select(this).attr("class");
             g.selectAll("polygon")
@@ -251,9 +251,6 @@ var RadarChart = {
               .style("fill-opacity", .7);
             })
       .on('mouseout', function(){
-            tooltip
-              .transition(200)
-              .style('opacity', 0);
             g.selectAll("polygon")
               .transition(200)
               .style("fill-opacity", cfg.opacityArea);
@@ -263,10 +260,5 @@ var RadarChart = {
 
       series++;
     });
-    //Tooltip
-    tooltip = g.append('text')
-           .style('opacity', 0)
-           .style('font-family', 'sans-serif')
-           .style('font-size', '13px');
     }
 };

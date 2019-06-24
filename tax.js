@@ -69,7 +69,11 @@ function makeLine(dataset){
     .domain([0, 100]) // input
     .range([height, 0]); // output
 
-  // TODO: .ticks !!!!!!!!!!!!!!!!!!!
+  // var tip = d3v5.tip().attr('class', 'd3-tip').direction('e').offset([0,5])
+  //         .html(function(d) {
+  //           return  d.y;
+  //         });
+  // d3v5.select("body").select("#box-two").select("#line").select("svg").call(tip);
 
   // 7. d3's line generator
   var line = d3v5.line()
@@ -106,7 +110,7 @@ function makeLine(dataset){
     .text("Years")
     .attr("x", 100)
     .attr("y", 240)
-    .style("fill", "#e31a1c");
+    .style("fill", "#a00026");
 
   // Give labels to the axis
   svg.append("text")
@@ -114,14 +118,14 @@ function makeLine(dataset){
     .attr("x", -100)
     .attr("y", -30)
     .attr("transform", "rotate(-90)")
-    .style("fill", "#bd0026");
+    .style("fill", "#a00026");
 
   svg.append("text")
     .attr("class", "title")
     .text("United states of America")
     .attr("x", 40)
     .attr("y", 0)
-    .style("fill", "#bd0026");
+    .style("fill", "#a00026");
 
   // Title
   svg.append("text")
@@ -129,7 +133,7 @@ function makeLine(dataset){
     .text("Average taxes as a % of cigarette price")
     .attr("x", 0)
     .attr("y", -20)
-    .style("fill", "#bd0026");
+    .style("fill", "#a00026");
 
   // In case of no data, show this text
   svg.append("text")
@@ -153,42 +157,8 @@ function makeLine(dataset){
     .attr("cx", function(d) { return xScale(d.x) })
     .attr("cy", function(d) { return yScale(d.y) })
     .attr("r", 5)
-    //   .on("mouseover", function(a, b, c) {
-    //     console.log(a)
-    //     this.attr('class', 'focus')
-    // })
-    //   .on("mouseout", function() {  })
-    //     .on("mousemove", mousemove);
-    //
-    // var focus = svg.append("g")
-    //     .attr("class", "focus")
-    //     .style("display", "none");
-    //
-    // focus.append("circle")
-    //     .attr("r", 4.5);
-    //
-    // focus.append("text")
-    //     .attr("x", 9)
-    //     .attr("dy", ".35em");
-    //
-    // svg.append("rect")
-    //     .attr("class", "overlay")
-    //     .attr("width", width)
-    //     .attr("height", height)
-    //     .on("mouseover", function() { focus.style("display", null); })
-    //     .on("mouseout", function() { focus.style("display", "none"); })
-    //     .on("mousemove", mousemove);
-    //
-    // function mousemove() {
-    //   var x0 = x.invert(d3.mouse(this)[0]),
-    //       i = bisectDate(data, x0, 1),
-    //       d0 = data[i - 1],
-    //       d1 = data[i],
-    //       d = x0 - d0.date > d1.date - x0 ? d1 : d0;
-    //   focus.attr("transform", "translate(" + x(d.date) + "," + y(d.close) + ")");
-    //   focus.select("text").text(d);
-    // }
-
+    // .on('mouseover', tip.show)
+    // .on('mouseout', tip.hide);
 }
 
 function updateLine(data){

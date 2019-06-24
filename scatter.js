@@ -57,7 +57,7 @@ function makeScatter(map, taxes){
     var tip = d3v5.tip().attr('class', 'd3-tip').direction('e').offset([0,5])
             .html(function(d) {
               var country = toCountry(d[0]);
-              return country + ": " + d[1] + ";" + d[2];
+              return country + ": " + d[2] + ";" + d[1];
             });
     d3v5.select("body").select("#box-two").select("#scatter").select("svg").call(tip);
 
@@ -72,7 +72,7 @@ function makeScatter(map, taxes){
        .attr("cy", function(d) {
             return yScale(d[1]) + (2 * padding);
        })
-       .style("fill", "#2171b5")
+       .style("fill", "#a00026")
        .attr("r", 5)
        .on('mouseover', tip.show)
        .on('mouseenter', function(){
@@ -82,7 +82,7 @@ function makeScatter(map, taxes){
        .on('mouseout', tip.hide)
        .on('mouseleave', function(){
         d3v5.select(this)
-        .style("fill", "#2171b5")
+        .style("fill", "#a00026")
         });
 
     // Create the axes
@@ -103,7 +103,7 @@ function makeScatter(map, taxes){
       .attr("x", -420)
       .attr("y", 25)
       .attr("transform", "rotate(-90)")
-      .style("fill", "#2171b5");
+      .style("fill", "#a00026");
 
     // Create title
     svg.append("text")
@@ -111,12 +111,12 @@ function makeScatter(map, taxes){
       .attr("class", "title")
       .attr("x", w/2 - leftPadding - 60)
       .attr("y", padding)
-      .style("fill", "#2171b5");
+      .style("fill", "#a00026");
 
     // Create labels for the X axis
     svg.append("text")
       .text("Average taxes as a % of cigarette price")
       .attr("x", w/7 - padding + 30)
       .attr("y", h + (3 * padding))
-      .style("fill", "#2171b5");
+      .style("fill", "#a00026");
 }

@@ -36,7 +36,7 @@ function makeScatter2(map, adds){
       var country = sameCountries[i];
       countryArray.push(country);
       countryArray.push(map[country]["Value"]);
-      for(var j = 0; j < 6; j++){
+      for(var j = 0; j < 7; j++){
         count = count + adds[country][j]["value"];
       }
       countryArray.push(count / 50);
@@ -74,7 +74,7 @@ function makeScatter2(map, adds){
        .attr("cy", function(d) {
             return yScale(d[1]) + (2 * padding);
        })
-       .style("fill", "#3f007d")
+       .style("fill", "#a00026")
        .attr("r", 5)
        .on('mouseover', tip.show)
        .on('mouseenter', function(){
@@ -84,7 +84,7 @@ function makeScatter2(map, adds){
        .on('mouseout', tip.hide)
        .on('mouseleave', function(){
         d3v5.select(this)
-        .style("fill", "#3f007d")
+        .style("fill", "#a00026")
         });
 
     // Create the axes
@@ -106,7 +106,7 @@ function makeScatter2(map, adds){
       .attr("x", -420)
       .attr("y", 25)
       .attr("transform", "rotate(-90)")
-      .style("fill", "#3f007d");
+      .style("fill", "#a00026");
 
     // Create title
     svg.append("text")
@@ -114,14 +114,14 @@ function makeScatter2(map, adds){
       .attr("class", "title")
       .attr("x", w/2 - leftPadding - 60)
       .attr("y", padding)
-      .style("fill", "#3f007d");
+      .style("fill", "#a00026");
 
     // Create labels for the X axis
     svg.append("text")
       .text("Number of tabacco advertising bans")
       .attr("x", w/7 - padding + 30)
       .attr("y", h + (3 * padding))
-      .style("fill", "#3f007d");;
+      .style("fill", "#a00026");;
 
     return dataArray;
 }
