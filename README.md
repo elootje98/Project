@@ -4,7 +4,7 @@ This data visualization is made by Elodie Rijnja.
 ## Percentage of smokers in a country
 First an overview is given on how many people are smoking in every country.
 It's possible for the user to also see this for males and females seperately.
-![](map.png)
+![](docs/map.png)
 
 ## Taxes on cigarettes
 A country on the map can be clicked in order to see the corresponding average
