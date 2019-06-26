@@ -46,8 +46,10 @@ I tried to update my design a bit, by changing the colors.
 ## 24-06-2019
 Added text to the webpage. Also put the graphs in the right order.
 
-TODO:
-hightlihgy nbar
-spacev legedn
-black legend?
-block text
+## 25-06-2019
+Changed the design of the navbar.
+
+make github clean
+
+Licence of other people???
+docs folder?

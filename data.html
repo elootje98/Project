@@ -2,6 +2,7 @@
 <html lang ="en">
     <head>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <script src="https://d3js.org/d3.v5.min.js"></script>
       <script>
         d3v5 = d3;
@@ -11,48 +12,50 @@
       <script src="https://d3js.org/d3.v3.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
       <!-- <script scr="redraw.js"></script> -->
-      <script src="spider.js"></script>
-      <script src="make_radar.js"></script>
-      <script src="main.js"></script>
-      <script src="datamaps.world.min.js"></script>
-      <script src="toCountryCode.js"></script>
-      <script src="d3-tip.js"></script>
-      <script src="make_maps.js"></script>
-      <script src="scatter.js"></script>
-      <script src="scatter2.js"></script>
-      <script src="box.js"></script>
+      <script src="script/spider.js"></script>
+      <script src="script/make_radar.js"></script>
+      <script src="script/main.js"></script>
+      <script src="script/datamaps.world.min.js"></script>
+      <script src="script/toCountryCode.js"></script>
+      <script src="script/d3-tip.js"></script>
+      <script src="script/make_maps.js"></script>
+      <script src="script/scatter.js"></script>
+      <script src="script/scatter2.js"></script>
+      <script src="script/searchUpdate.js"></script>
       <script>
         d3v3 = d3;
         window.d3 = null;
       </script>
-      <script src="map.js">  </script>
-      <script src="tax.js"></script>
-      <link href="style.css" rel="stylesheet">
+      <script src="script/map.js">  </script>
+      <script src="script/tax.js"></script>
+      <link href="script/style.css" rel="stylesheet">
         <title>
-            Website Elodie Rijnja 10
+            Smoking
         </title>
   </head>
     <body background="serveimage.jpeg">
       <div class"container">
         <div class="topnav">
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <nav class="fixed-nav-bar navbar navbar-expand-sm bg-dark navbar-dark">
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="nav">
                 <li class="nav-item active">
                   <a class="nav-link" href="index.html">Home<span class="sr-only"></span></a>
                 </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="data.html" class="active-page">Data <span class="sr-only"></span></a>
+                <li class="nav-item active active-page">
+                  <a class="nav-link" href="data.html">Data <span class="sr-only"></span></a>
                 </li>
                 <li class="nav-item active">
                   <a class="nav-link" href="http://apps.who.int/gho/data/node.main.1250?lang=en">Source smokers<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="TO DO">Source taxes<span class="sr-only"></span></a>
+                  <a class="nav-link" href="http://apps.who.int/gho/data/node.main.TOB1307?lang=en">Source taxes<span class="sr-only"></span></a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="TO DO">Source advertising<span class="sr-only"></span></a>
+                  <a class="nav-link" href="http://apps.who.int/gho/data/node.main.1291?lang=en">Source advertising<span class="sr-only"></span></a>
                 </li>
+                <input type="text" id="myText" placeholder="Search a country">
+                <button class="fa fa-search submit" type="submit"><i></i></button>
               </ul>
             </div>
           </nav>
@@ -85,7 +88,7 @@
         </div>
         <div id="box-two">
           <div id="line">
-            <select>
+            <select id="select">
               <option class= "Total" selected value="Total tax">Total tax</option>
               <option class= "Specific" value="Specific excise">Specific excise</option>
               <option class="Ad" value="Ad valorem">Ad valorem</option>
@@ -145,7 +148,8 @@
             <p>
               Here the relation between the amouth of advertising bans and
               the percentage of smokers is shown. A strong correlations between
-              advertising bans and taxes can not be seen.
+              advertising bans and the percentage of smokers can not be seen.
+              However, it seems that
             </p>
           <div>
           <div id="scatter2">
