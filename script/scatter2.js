@@ -53,12 +53,12 @@ function makeScatter2(map, adds){
              .range([h - padding, padding]);
 
     // Make a tooltip.
-    var tip = d3v5.tip().attr('class', 'd3-tip').direction('e').offset([0,5])
+    var tip = d3v5.tip().attr('class', 'd3-tip addtip').direction('e').offset([0,5])
             .html(function(d) {
               var country = toCountry(d[0]);
-              return country + ": " + d[1] + ";" + d[2];
+              return country + ": " + d[2] + "; " + d[1];
             });
-    d3v5.select("body").select("#box-two").select("#scatter2").select("svg").call(tip);
+    svg.call(tip);
 
     // Make a circle for each datapoint
     svg.selectAll("circle")

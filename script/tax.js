@@ -83,11 +83,11 @@ function makeLine(dataset){
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   // Add a tooltip.
-  var tip = d3v5.tip().attr('class', 'd3-tip').direction('e').offset([0,5])
+  var taxtip = d3v5.tip().attr('class', 'd3-tip taxtip').direction('e').offset([0,5])
           .html(function(d) {
-            return d.y;
+            return d.x + ": " + d.y;
           });
-  svg.call(tip);
+  svg.call(taxtip);
 
   tickValues = ["2008", "2010", "2012", "2014"];
 
@@ -154,8 +154,8 @@ function makeLine(dataset){
     .attr("cx", function(d) { return xScale(d.x) })
     .attr("cy", function(d) { return yScale(d.y) })
     .attr("r", 5)
-    .on('mouseover', tip.show)
-    .on('mouseout', tip.hide);
+    .on('mouseover', taxtip.show)
+    .on('mouseout', taxtip.hide);
 }
 
 // Update the line chart.
@@ -171,8 +171,6 @@ function updateLine(data){
   var yScale = d3v5.scaleLinear()
     .domain([0, 100])
     .range([height, 0]);
-
-  console.log(data);
 
   var line = d3v5.line()
     .x(function(d) { return xScale(d.x); })
