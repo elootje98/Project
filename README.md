@@ -41,7 +41,7 @@ https://bl.ocks.org/mattdh666/b941fd20978cfad1398739c2563aee1f
 https://www.w3schools.com/howto/howto_css_search_button.asp
 d3-tip.js
 https://raw.githubusercontent.com/markmarkoh/datamaps/master/dist/datamaps.world.min.js
--> used for datamaps.world.min.js. 
+-> used for datamaps.world.min.js.
 
 For the data:
 smoking.json
@@ -52,7 +52,7 @@ advertising.json
 http://apps.who.int/gho/data/node.main.1291?lang=en
 
 For storytelling:
-![](smoking.png)
+![](docs/smoking.png)
 https://cancerfocusni.org/cancer-prevention/smoking/
 
 ## Copyright
