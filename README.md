@@ -1,5 +1,5 @@
 # The effect of advertising bans and taxes on the percentage of smokers in a country.
-https://github.com/elootje98/Project/
+https://elootje98.github.io/Project/
 This data visualization is made by Elodie Rijnja.
 
 ## Percentage of smokers in a country
