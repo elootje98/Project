@@ -65,17 +65,17 @@ Copyright (c) 2013 Justin Palmer
 ES6 / d3v5 v4 Adaption Copyright (c) 2016 Constantin Gavrilete
 Removal of ES6 for d3v5 v4 Adaption Copyright (c) 2016 David Gotz
 
-### Radar Chart source
+#### Radar Chart source
 source: https://blockbuilder.org/Ananda90/8269def4e60b17d57d358b2e8219f62d
 A redesign of the radar chart function that was created by alangrafu,
 used in my blog on Making the D3 Radar Chart look a bit better.
 
-### Line chart source
+#### Line chart source
 source: https://bl.ocks.org/gordlea/27370d1eea8464b04538e6d8ced39e89
 Released under the The MIT License. Link here:
 https://opensource.org/licenses/MIT
 
-### Boxplot source
+#### Boxplot source
 https://bl.ocks.org/mattdh666/b941fd20978cfad1398739c2563aee1f
 Didn't use this source to make a boxplot, just minor changes in other plots.
 Released under the Apache License, Version 2.0. Link here:
