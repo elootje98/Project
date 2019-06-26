@@ -18,12 +18,12 @@ advertising bans a country has.
 ![](add.png)
 
 ## Scatter plots
+![](scatter.png)
+![](scatter2.png)
 Since it's hard to keep an overview over the countries taxes, advertising bans
 and the percentage of smokers, two scatterplots have been made. One containig the
 parameters taxes and percentage of smokers. The other one containing advertising
 bans and percentage of smokers.
-![](scatter.png)
-![](scatter2.png)
 
 ## Search option
 ![](search.png)
