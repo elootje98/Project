@@ -10,23 +10,23 @@ It's possible for the user to also see this for males and females seperately.
 A country on the map can be clicked in order to see the corresponding average
 % of taxes of cigarette price in that country. Different types of taxes can be
 chosen.
-![](tax.png)
+![](docs/tax.png)
 
 ## Advertising bans
 Furthermore, after clicking a country on the map, there will be shown how many
 advertising bans a country has.
-![](add.png)
+![](docs/add.png)
 
 ## Scatter plots
-![](scatter.png)
-![](scatter2.png)
+![](docs/scatter.png)
+![](docs/scatter2.png)
 Since it's hard to keep an overview over the countries taxes, advertising bans
 and the percentage of smokers, two scatterplots have been made. One containig the
 parameters taxes and percentage of smokers. The other one containing advertising
 bans and percentage of smokers.
 
 ## Search option
-![](search.png)
+![](docs/search.png)
 To make it more convenient for the user, there is a search bar. In this search
 bar the user can type a country. After pressing the button, the scatter- and
 spiderplot are updated to that country.
