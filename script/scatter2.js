@@ -34,13 +34,15 @@ function makeScatter2(map, adds){
       var count = 0;
       var countryArray = [];
       var country = sameCountries[i];
-      countryArray.push(country);
-      countryArray.push(map[country]["Value"]);
-      for(var j = 0; j < 7; j++){
-        count = count + adds[country][j]["value"];
+      if(country != "undefined"){
+        countryArray.push(country);
+        countryArray.push(map[country]["Value"]);
+        for(var j = 0; j < 7; j++){
+          count = count + adds[country][j]["value"];
+        }
+        countryArray.push(count / 50);
+        dataArray.push(countryArray);
       }
-      countryArray.push(count / 50);
-      dataArray.push(countryArray);
     }
 
     // There are 7 bans so that is the max in domain.

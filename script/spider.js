@@ -105,13 +105,6 @@ function updateSpider(d){
             newX =  parseFloat(d3v3.select(this).attr('cx')) - 10;
             newY =  parseFloat(d3v3.select(this).attr('cy')) - 5;
 
-            tooltip
-              .attr('x', newX)
-              .attr('y', newY)
-              .text(Format(d.value))
-              .transition(200)
-              .style('opacity', 1);
-
             z = "polygon."+d3v3.select(this).attr("class");
             g.selectAll("polygon")
               .transition(200)
@@ -121,9 +114,6 @@ function updateSpider(d){
               .style("fill-opacity", .7);
             })
       .on('mouseout', function(){
-            tooltip
-              .transition(200)
-              .style('opacity', 0);
             g.selectAll("polygon")
               .transition(200)
               .style("fill-opacity", cfg.opacityArea);
@@ -155,13 +145,6 @@ function updateSpider(d){
               newX =  parseFloat(d3v3.select(this).attr('cx')) - 10;
               newY =  parseFloat(d3v3.select(this).attr('cy')) - 5;
 
-              tooltip
-                .attr('x', newX)
-                .attr('y', newY)
-                .text(Format(d.value))
-                .transition(200)
-                .style('opacity', 1);
-
               z = "polygon."+d3v3.select(this).attr("class");
               g.selectAll("polygon")
                 .transition(200)
@@ -171,9 +154,6 @@ function updateSpider(d){
                 .style("fill-opacity", .7);
               })
         .on('mouseout', function(){
-              tooltip
-                .transition(200)
-                .style('opacity', 0);
               g.selectAll("polygon")
                 .transition(200)
                 .style("fill-opacity", cfg.opacityArea);
