@@ -32,7 +32,7 @@ bar the user can type a country. After pressing the button, the scatter- and
 spiderplot are updated to that country.
 
 ## Sources
-For writing code:
+### For writing code:
 http://jonsadka.com/blog/how-to-create-live-updating-and-flexible-d3-line-charts-using-pseudo-data
 https://getbootstrap.com/docs/4.0/components/navbar/
 https://blockbuilder.org/Ananda90/8269def4e60b17d57d358b2e8219f62d
@@ -43,7 +43,7 @@ d3-tip.js
 https://raw.githubusercontent.com/markmarkoh/datamaps/master/dist/datamaps.world.min.js
 -> used for datamaps.world.min.js.
 
-For the data:
+### For the data:
 smoking.json
 http://apps.who.int/gho/data/node.main.1250?lang=en
 tax.json
@@ -51,7 +51,7 @@ http://apps.who.int/gho/data/node.main.TOB1307?lang=en
 advertising.json
 http://apps.who.int/gho/data/node.main.1291?lang=en
 
-For storytelling:
+### For storytelling and background:
 ![](docs/smoking.png)
 https://cancerfocusni.org/cancer-prevention/smoking/
 
