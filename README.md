@@ -3,7 +3,7 @@ https://elootje98.github.io/Project/
 This data visualization is made by Elodie Rijnja.
 
 # Link to video
-https://youtu.be/-0pAvk--uWo
+https://youtu.be/3eSlDqYndkg
 
 ## Percentage of smokers in a country
 First an overview is given on how many people are smoking in every country.
