@@ -68,7 +68,10 @@ Furthermore, I had problems with the x axis of my line chart. Somehow the
 dots where appearing between two values of the x axis, and not directly above it.
 This was due to me using "scaleBand". Scaleband is normally used for bar charts,
 therefore indicating where the bar should be. I fixed this problem by changing
-"scaleBand" to "scaleLinear". 
+"scaleBand" to "scaleLinear".
+
+First I didn't know that you can assign two classes in html. When I found that
+out, it helped me a lot to style certain parts of my web page. 
 
 #### Html
 The html page is pretty much how I proposed it. Except for the fact that
