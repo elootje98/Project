@@ -3,6 +3,8 @@ https://elootje98.github.io/Project/
 This data visualization is made by Elodie Rijnja.
 
 # Link to video
+https://youtu.be/-0pAvk--uWo
+This is the right one, if it doesn't work, use the one below.
 https://youtu.be/3eSlDqYndkg
 
 ## Percentage of smokers in a country
